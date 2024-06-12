@@ -140,7 +140,7 @@ namespace Web_API.Controllers
 
         [HttpPost]
         [Route("ChangePassword")]
-        //[Authorize]
+        [Authorize]
         public ResponseResult ChangePassword(ChangePassword changePassword)
         {
             try
