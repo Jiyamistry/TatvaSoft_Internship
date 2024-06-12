@@ -87,5 +87,9 @@ namespace Business_logic_Layer
         {
             return _dalLogin.LoginUserProfileUpdate(userDetail);
         }
+        public string ChangePassword(ChangePassword changePassword)
+        {
+            return _dalLogin.ChangePassword(changePassword);
+        }
     }
 }

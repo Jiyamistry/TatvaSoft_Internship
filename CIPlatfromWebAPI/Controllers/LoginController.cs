@@ -138,9 +138,23 @@ namespace Web_API.Controllers
             return result;
         }
 
-        //[HttpPost]
-        //[Route("ChangePassword")]
+        [HttpPost]
+        [Route("ChangePassword")]
         //[Authorize]
-        
+        public ResponseResult ChangePassword(ChangePassword changePassword)
+        {
+            try
+            {
+                result.Data = _balLogin.ChangePassword(changePassword);
+                result.Result = ResponseStatus.Success;
+            }
+            catch (Exception ex)
+            {
+                result.Result = ResponseStatus.Error;
+                result.Message = ex.Message;
+            }
+            return result;
+        }
+
     }
 }

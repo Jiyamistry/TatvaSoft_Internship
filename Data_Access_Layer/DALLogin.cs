@@ -1,12 +1,11 @@
 ﻿    using Data_Access_Layer.Migrations;
     using Data_Access_Layer.Repository;
     using Data_Access_Layer.Repository.Entities;
-    using System.Data;
-
-    namespace Data_Access_Layer
+using System.Data;
+namespace Data_Access_Layer
+{
+    public class DALLogin
     {
-        public class DALLogin
-        {
             private readonly AppDbContext _cIDbContext;
             public DALLogin(AppDbContext cIDbContext)
             {
@@ -361,7 +360,40 @@
                 }
                 return result;
             }
-        
-        
+        public string ChangePassword(ChangePassword changePassword)
+        {
+            string result = "";
+            try
+            {
+                int id = changePassword.UserId;
+                var user = _cIDbContext.User.FirstOrDefault(u => u.Id == changePassword.UserId && u.IsDeleted == false);
+                if (user != null)
+                {
+                    if (changePassword.OldPassword == user.Password)
+                    {
+                        if (changePassword.NewPassword == changePassword.ConfirmPassword)
+                        {
+                            user.Password = changePassword.ConfirmPassword;
+                            _cIDbContext.SaveChanges();
+                            result = "Password Changed Successfully!";
+                        }
+                        else
+                        {
+                            throw new Exception("New Password and Confirm Password do not match!");
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Old Password is not correct!");
+                    }
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+
+    }
     }
