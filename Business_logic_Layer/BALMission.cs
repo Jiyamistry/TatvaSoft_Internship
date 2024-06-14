@@ -56,6 +56,10 @@ namespace Business_logic_Layer
         {
             return _dalMission.MissionApplicationDelete(id);
         }
+        public Missions MissionDetailByMissionId(SortestData data)
+        {
+            return _dalMission.MissionDetailByMissionId(data);
+        }
         public string MissionApplicationApprove(int id)
         {
             return _dalMission.MissionApplicationApprove(id);
