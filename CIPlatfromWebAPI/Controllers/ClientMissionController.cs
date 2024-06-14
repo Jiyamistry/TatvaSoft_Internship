@@ -70,5 +70,54 @@ namespace BackEnd.Controllers
             }
             return result;
         }
+        [HttpPost]
+        [Route("AddMissionFavourite")]
+        public ResponseResult AddMissionFavourite(MissionFavourites missionFavourites)
+        {
+            try
+            {
+                result.Data = _balMission.AddMissionFavourite(missionFavourites);
+                result.Result = ResponseStatus.Success;
+            }
+            catch (Exception ex)
+            {
+                result.Result = ResponseStatus.Error;
+                result.Message = ex.Message;
+            }
+            return result;
+        }
+
+        [HttpPost]
+        [Route("RemoveMissionFavourite")]
+        public ResponseResult RemoveMissionFavourite(MissionFavourites missionFavourites)
+        {
+            try
+            {
+                result.Data = _balMission.RemoveMissionFavourite(missionFavourites);
+                result.Result = ResponseStatus.Success;
+            }
+            catch (Exception ex)
+            {
+                result.Result = ResponseStatus.Error;
+                result.Message = ex.Message;
+            }
+            return result;
+        }
+        [HttpPost]
+        [Route("SendInviteMissionMail")]
+        public ResponseResult SendInviteMissionMail(List<MissionShareOrInvite> user)
+        {
+            try
+            {
+                result.Data = _balMission.SendInviteMissionMail(user);
+                result.Result = ResponseStatus.Success;
+            }
+            catch (Exception ex)
+            {
+                result.Result = ResponseStatus.Error;
+                result.Message = ex.Message;
+            }
+            return result;
+        }
     }
 }

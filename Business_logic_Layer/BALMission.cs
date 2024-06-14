@@ -64,5 +64,17 @@ namespace Business_logic_Layer
         {
             return _dalMission.MissionClientList(data);
         }
+        public string AddMissionFavourite(MissionFavourites missionFavourites)
+        {
+            return _dalMission.AddMissionFavourite(missionFavourites);
+        }
+        public string RemoveMissionFavourite(MissionFavourites missionFavourites)
+        {
+            return _dalMission.RemoveMissionFavourite(missionFavourites);
+        }
+        public string SendInviteMissionMail(List<MissionShareOrInvite> user)
+        {
+            return _dalMission.SendInviteMissionMail(user);
+        }
     }
 }
