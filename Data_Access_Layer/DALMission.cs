@@ -557,5 +557,33 @@ namespace Data_Access_Layer
             }
             return missionDetail;
         }
+        public string AddMissionComment(MissionComment missionComment)
+        {
+            try
+            {
+                _cIDbContext.MissionComment.Add(missionComment);
+                _cIDbContext.SaveChanges();
+                return "Comment added successfully";
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<MissionComment> MissionCommentListByMissionId(int missionId)
+        {
+            try
+            {
+                var missionCommentList = _cIDbContext.MissionComment
+                    .Where(mc => mc.MissionId == missionId)
+                    .ToList();
+                return missionCommentList;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

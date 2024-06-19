@@ -80,5 +80,13 @@ namespace Business_logic_Layer
         {
             return _dalMission.SendInviteMissionMail(user);
         }
+        public string AddMissionComment(MissionComment missionComment)
+        {
+            return _dalMission.AddMissionComment(missionComment);
+        }
+        public List<MissionComment> MissionCommentListByMissionId(int missionId)
+        {
+            return _dalMission.MissionCommentListByMissionId(missionId);
+        }
     }
 }
