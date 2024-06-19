@@ -44,6 +44,8 @@ builder.Services.AddScoped<BALMission>();
 builder.Services.AddScoped<BALCommon>();
 builder.Services.AddScoped<DALMission>();
 builder.Services.AddScoped<DALCommon>();
+builder.Services.AddScoped<DALStory>();
+builder.Services.AddScoped<BALStory>();
 builder.Services.AddScoped<JwtService>();
 
 builder.Services.AddCors(option =>
@@ -72,15 +74,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-//INSERT INTO public."User"(
-//    "Id", "FirstName", "LastName", "PhoneNumber", "EmailAddress", "UserType", "Password", "CreatedDate", "ModifiedDate", "IsDeleted")
-//    VALUES(1, 'Nisarg', 'Gami', '9999999999', 'nisarg@tatvasoft.com', 'admin', 'nisarg@123', CURRENT_DATE, CURRENT_DATE, '0');
-
-//INSERT INTO public."User"(
-//    "Id", "FirstName", "LastName", "PhoneNumber", "EmailAddress", "UserType", "Password", "CreatedDate", "ModifiedDate", "IsDeleted")
-//    VALUES(2, 'Nisarg', 'Gami', '9999999999', 'ngtestuser@tatvasoft.com', 'user', 'nisarg@123', CURRENT_DATE, CURRENT_DATE, '0');
-
-//INSERT INTO public."UserDetail"(
-//    "Id", "UserId", "Name", "Surname", "EmployeeId", "Manager", "Title", "Department", "MyProfile", "WhyIVolunteer", "CountryId", "CityId", "Avilability", "LinkdInUrl", "MySkills", "UserImage", "Status", "CreatedDate", "ModifiedDate", "IsDeleted")
-//    VALUES(1, 2, 'Nisarg', 'Gami', 1, 'Manager', 'Demo', 'IT', 'abc', 'xyz', 4, 27, 'Standards Availability', '', '', '', true, CURRENT_DATE, CURRENT_DATE, '0');
